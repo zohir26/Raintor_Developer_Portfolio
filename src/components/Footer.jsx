@@ -148,7 +148,7 @@ export function Footer() {
             <span className="text-xl font-bold">BESNIK</span>
             <span>© devlop.me 2022</span>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 mb-8">
             <a href="#" className="hover:text-white transition-colors">PRIVACY</a>
             <span>-</span>
             <a href="#" className="hover:text-white transition-colors">TERMS</a>

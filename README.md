@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Portfolio Thumbnail](https://i.ibb.co/jPQy0CPZ/Raintor.png)
 
-## Getting Started
+# 🚀 Developer Portfolio
 
-First, run the development server:
+## 🌟 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* A single-page portfolio website built with **Next.js**, showcasing skills, work process, projects, and contact options.
+* Designed to engage prospective clients and streamline the inquiry process.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Clone the repository**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/zohir26/Raintor_Developer_Portfolio.git
+   cd developer-portfolio
+   ```
+2. **Install dependencies**
 
-## Learn More
+   ```bash
+   npm install
+   ```
+3. **Run in development mode**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm run dev
+   ```
+4. **Build for production**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm run build
+   npm start
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
 
-## Deploy on Vercel
+* ⚛️ **Framework**: Next.js (React) for SSR/SSG and file-based routing
+* 🎨 **Styling**: Tailwind CSS and shadcn/ui for utility-first, accessible components
+* ✨ **Animations**: Framer Motion for smooth entrance, hover, and scroll animations
+* 🖼️ **Icons**: Lucide-React for lightweight, scalable SVG icons
+* 🔄 **State & Context**: React Context + hooks for theme toggling (light/dark) with `localStorage`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏗️ Components & Functionality
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **Header** 🧭
+
+  * Sticky navigation with desktop links, mobile menu, and theme toggle
+* **Hero** 🎬
+
+  * Full-screen intro with scroll-linked decorative floats, animated headline, CTA, and social links
+* **About** 👤
+
+  * Section with animated title, description, and company logos showcase
+* **WorkProcess** ⚙️
+
+  * Four-step workflow cards with entrance and hover animations, “Read More” links
+* **Skills** 🛠️
+
+  * Responsive grid of technical proficiencies with staggered animations and hover effects
+* **Contact** 📬
+
+  * Two-column layout: inquiry intro + animated contact form with underlined inputs and social footer
+* **Footer** 📄
+
+  * Multi-column layout for contact info, site navigation, and social links (including Behance & Dribbble)
+
+## 💡 Problem Solved
+
+* **Unified Experience**: Converts disparate portfolio pieces into a cohesive, interactive single-page
+* **Engagement**: Captivates visitors with animations and clear CTAs to schedule calls or send messages
+* **Accessibility & Responsiveness**: ARIA-friendly controls, mobile-first design, persistent theme preference
+* **Conversion**: Simplifies contact through multiple channels, driving client inquiries
+
+## 🔗 Live Demo & Resources
+
+* 🌐 **Live Site**: [YourPortfolioLive.com](https://developer-portfolio-o3gb89rzk-md-zohir-hossains-projects.vercel.app/)
+* 📂 **Repository**: [https://github.com/yourusername/developer-portfolio](https://github.com/zohir26/Raintor_Developer_Portfolio.git)
+* 📧 **Contact**: [your.email@example.com](mailto:mdzohirhossain500@gmail.com)
