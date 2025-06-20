@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sun, Moon } from 'lucide-react'; // Ensure lucide-react is installed: npm install lucide-react

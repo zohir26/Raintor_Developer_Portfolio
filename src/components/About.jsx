@@ -1,7 +1,7 @@
+'use client'
 import React from 'react';
-import { motion } from 'framer-motion'; // Make sure to install framer-motion: npm install framer-motion
-
-const About = () => {
+import { motion } from 'framer-motion';
+export const About = () => {
   const companies = [
     'awwwards', 'CSS Winner', 'thoughtworks', 'facebook', 'AUTODESK', 'CSS Design Awards'
   ];
@@ -13,7 +13,7 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
+          className={"max-w-4xl mx-auto text-center"}
         >
           <span className="text-sm bg-white/20 px-4 py-2 rounded-full mb-6 inline-block">
             About
@@ -60,4 +60,3 @@ const About = () => {
   );
 };
 
-export default About;
