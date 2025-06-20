@@ -1,41 +1,50 @@
-// components/ThemeProvider.js
-'use client'; 
-import React, { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
+'use client';
 
+import React, { createContext, useState, useEffect } from 'react';
 
-// This context provides the current theme ('light' or 'dark') and a function to toggle it.
-export const ThemeContext = React.createContext({
-  theme: 'light', // Default theme value for consumers if rendered outside the Provider.
-  toggleTheme: () => {} // Placeholder function for the default context value.
+/**
+ * ThemeContext provides:
+ *  - theme: current theme, either 'light' or 'dark'
+ *  - toggleTheme: function to switch between themes
+ */
+export const ThemeContext = createContext({
+  theme: 'light',
+  toggleTheme: () => {}
 });
 
+/**
+ * ThemeProvider manages theme state, persists user choice, 
+ * and applies a 'dark' class to <html> when appropriate.
+ */
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState('light');
 
-// This component manages the theme state and provides it to all its children components
-
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light'); // State to hold the current theme.
-
+  // On component mount, load saved preference and apply it
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light'; 
-    setTheme(savedTheme); 
+    const saved = localStorage.getItem('theme') || 'light';
+    setTheme(saved);
+    document.documentElement.classList.toggle('dark', saved === 'dark');
+  }, []);
 
-    document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-  }, []); 
-
-  // Function to toggle between 'light' and 'dark' themes.
+  /**
+   * Toggle between 'light' and 'dark' themes:
+   * 1. Compute next theme
+   * 2. Persist to localStorage
+   * 3. Update <html> class
+   * 4. Update state
+   */
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'; // Determine the next theme.
-    setTheme(newTheme); // Update the theme state.
-    localStorage.setItem('theme', newTheme); // Save the new theme preference to localStorage.
-    // Toggle the 'dark' class on the document's root element to apply/remove dark mode styles.
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    setTheme((current) => {
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', next);
+      document.documentElement.classList.toggle('dark', next === 'dark');
+      return next;
+    });
   };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children} {/* Render all child components passed to ThemeProvider */}
+      {children}
     </ThemeContext.Provider>
   );
-};
-
+}
