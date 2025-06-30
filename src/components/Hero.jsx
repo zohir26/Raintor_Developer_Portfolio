@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Calendar, Linkedin, Twitter, Github } from 'lucide-react';
+import { Calendar, Twitter, Instagram, Facebook, Phone } from 'lucide-react';
 
 /**
  * Hero section with scroll-linked animations, headline, call-to-action, and social links.
@@ -23,7 +23,7 @@ export default function Hero() {
       className="relative flex items-center justify-center min-h-screen overflow-hidden"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-lime-300 via-lime-400 to-lime-500 dark:from-lime-600 dark:via-lime-700 dark:to-lime-800" />
+      <div className="absolute inset-0 bg-[url(/banner.png)]" />
 
       {/* Floating decorative circles */}
       <motion.div
@@ -49,7 +49,7 @@ export default function Hero() {
           </span>{' '}
           for Your Website{' '}
           <span className="inline-block px-4 py-2 text-white bg-black rounded-lg">
-            Develop.
+            Development.
           </span>
         </motion.h1>
 
@@ -60,7 +60,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mx-auto mb-8 max-w-2xl text-xl text-black dark:text-gray-200 md:text-2xl"
         >
-          Building the world&apos;s best marketing websites for over a{' '}
+          Building the world's best marketing websites for over a{' '}
           <span className="font-bold">decade</span>.
           <br /> Your trusted partner for strategy, design, and dev.
         </motion.p>
@@ -72,47 +72,48 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Button size="lg" className="flex items-center gap-2 bg-black text-white hover:bg-gray-800">
-            <Calendar size={20} />
-            Schedule a Call
-          </Button>
-
-          {/* Avatar stack */}
-          <div className="flex -space-x-2">
-            <div className="flex items-center justify-center w-10 h-10 text-white bg-purple-500 rounded-full border-2 border-lime-400 font-bold">
-              M
-            </div>
-            <div className="flex items-center justify-center w-10 h-10 text-white bg-pink-500 rounded-full border-2 border-lime-400 font-bold">
-              M
-            </div>
-            <div className="flex items-center justify-center w-10 h-10 text-white bg-blue-500 rounded-full border-2 border-lime-400 font-bold">
-              D
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Social links */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col items-center space-y-4"
-        >
-          <div className="flex space-x-6">
-            {[Linkedin, Twitter, Github].map((Icon, idx) => (
-              <a
-                key={idx}
-                href="#"
-                aria-label={Icon.displayName}
-                className="transition-colors text-black dark:text-gray-200 hover:text-gray-600"
-              >
-                <Icon size={24} />
-              </a>
-            ))}
-          </div>
-          <div className="text-sm font-medium text-black dark:text-gray-200">
-            @williamrey
-          </div>
+          <motion.div 
+            className="flex flex-col items-start space-y-2"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.div className="flex space-x-4 absolute top-88 left-16 rotate-270">
+              {[
+                { Icon: Twitter, href: '#' },
+                { Icon: Instagram, href: '#' },
+                { Icon: Facebook, href: '#' },
+              ].map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.href}
+                  aria-label={item.Icon.displayName}
+                  className="text-black hover:text-gray-600"
+                >
+                  <item.Icon size={24} />
+                </a>
+              ))}
+            </motion.div>
+            <motion.div 
+              className="text-sm font-medium text-black absolute left-12 top-88 rotate-270"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              @williamrey
+            </motion.div>
+          </motion.div>
+          <motion.div 
+            className="mt-4 sm:mt-0 "
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <button className="px-6 py-3 bg-transparent border border-black rounded-full text-black hover:bg-black hover:text-white transition-colors flex items-center gap-2">
+              <Phone size={20} />
+              Schedule a Call
+            </button>
+          </motion.div>
         </motion.div>
       </div>
     </section>
